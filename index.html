@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS (V4 Play CDN) -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -44,6 +44,17 @@
             font-family: var(--font-sans);
             background-color: var(--color-md-linen);
             color: var(--color-md-charcoal);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        body, p, h1, h2, h3, h4, h5, h6, span, div, button, input, textarea {
+            font-family: 'Be Vietnam Pro', var(--font-sans), sans-serif;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
         }
 
         .glass-dark {
@@ -58,46 +69,49 @@
             opacity: 0.05;
         }
 
-        @keyframes popScale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); } }
-        .animate-pop { animation: popScale 0.4s ease-out; }
+        @keyframes popScale { 0%, 100% { -webkit-transform: scale(1); transform: scale(1); } 50% { -webkit-transform: scale(1.05); transform: scale(1.05); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); } }
+        .animate-pop { -webkit-animation: popScale 0.4s ease-out; animation: popScale 0.4s ease-out; }
 
-        @keyframes floatUpFade { 0% { opacity: 1; transform: translateY(0) scale(0.8); } 100% { opacity: 0; transform: translateY(-50px) scale(1.2); } }
-        .plus-one-badge { position: fixed; pointer-events: none; z-index: 9999; font-weight: 900; color: var(--color-md-green-dark); background: var(--color-md-gold); padding: 4px 10px; border-radius: 999px; font-size: 14px; animation: floatUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        @keyframes floatUpFade { 0% { opacity: 1; -webkit-transform: translateY(0) scale(0.8); transform: translateY(0) scale(0.8); } 100% { opacity: 0; -webkit-transform: translateY(-50px) scale(1.2); transform: translateY(-50px) scale(1.2); } }
+        .plus-one-badge { position: fixed; pointer-events: none; z-index: 9999; font-weight: 900; color: var(--color-md-green-dark); background: var(--color-md-gold); padding: 4px 10px; border-radius: 999px; font-size: 14px; -webkit-animation: floatUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation: floatUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
-        @keyframes shakeCart { 0%, 100% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(-12deg) scale(1.1); } 50% { transform: rotate(12deg) scale(1.1); } 75% { transform: rotate(-12deg) scale(1.1); } }
-        .animate-shake { animation: shakeCart 0.5s ease-in-out; }
+        @keyframes shakeCart { 0%, 100% { -webkit-transform: rotate(0deg) scale(1); transform: rotate(0deg) scale(1); } 25% { -webkit-transform: rotate(-12deg) scale(1.1); transform: rotate(-12deg) scale(1.1); } 50% { -webkit-transform: rotate(12deg) scale(1.1); transform: rotate(12deg) scale(1.1); } 75% { -webkit-transform: rotate(-12deg) scale(1.1); transform: rotate(-12deg) scale(1.1); } }
+        .animate-shake { -webkit-animation: shakeCart 0.5s ease-in-out; animation: shakeCart 0.5s ease-in-out; }
 
         /* Bird Animation: 3 Speeds & Sine Wave */
         @keyframes flyRight {
-            0% { transform: translateX(-20vw); opacity: 0; }
+            0% { -webkit-transform: translateX(-20vw); transform: translateX(-20vw); opacity: 0; }
             10% { opacity: 0.2; }
             90% { opacity: 0.2; }
-            100% { transform: translateX(120vw); opacity: 0; }
+            100% { -webkit-transform: translateX(120vw); transform: translateX(120vw); opacity: 0; }
         }
         @keyframes flyBob {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(-8deg); }
+            0%, 100% { -webkit-transform: translateY(0px) rotate(0deg); transform: translateY(0px) rotate(0deg); }
+            50% { -webkit-transform: translateY(-40px) rotate(-8deg); transform: translateY(-40px) rotate(-8deg); }
         }
         .bird-wrapper {
             position: absolute;
+            -webkit-animation: flyRight infinite linear;
             animation: flyRight infinite linear;
             will-change: transform;
         }
         .bird-inner {
+            -webkit-animation: flyBob infinite ease-in-out;
             animation: flyBob infinite ease-in-out;
             will-change: transform;
         }
 
         /* Water Ripple: Layered Radial Pulse */
         @keyframes ripple-pulse {
-            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+            0% { -webkit-transform: translate(-50%, -50%) scale(0.2); transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
             40% { opacity: 0.5; }
-            100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+            100% { -webkit-transform: translate(-50%, -50%) scale(3.5); transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
         }
         .radial-ripple {
             position: absolute;
             border-radius: 50%;
             background: radial-gradient(ellipse at center, transparent 0%, rgba(212, 168, 67, 0.1) 40%, rgba(212, 168, 67, 0.4) 60%, transparent 80%);
+            -webkit-animation: ripple-pulse infinite cubic-bezier(0.1, 0.8, 0.3, 1);
             animation: ripple-pulse infinite cubic-bezier(0.1, 0.8, 0.3, 1);
             pointer-events: none;
         }
@@ -107,19 +121,23 @@
             background: linear-gradient(135deg, #FAF6EE 0%, #E8DFCE 100%);
             position: relative;
             box-shadow: 0 4px 6px -1px rgba(139, 94, 60, 0.1), 0 2px 4px -1px rgba(139, 94, 60, 0.06);
-            padding-bottom: 2.5rem;
+            padding-bottom: 4rem !important;
+            overflow: visible !important;
+            -webkit-clip-path: polygon(
+                0 0, 100% 0, 100% 80%,
+                95% 85%, 90% 80%, 85% 86%, 80% 80%,
+                75% 86%, 70% 80%, 65% 85%, 60% 80%,
+                55% 86%, 50% 80%, 45% 85%, 40% 80%,
+                35% 86%, 30% 80%, 25% 85%, 20% 80%,
+                15% 86%, 10% 80%, 5% 85%, 0 80%
+            );
             clip-path: polygon(
-                0 0, 100% 0, 100% calc(100% - 10px),
-                95% 100%, 90% calc(100% - 10px),
-                85% 100%, 80% calc(100% - 10px),
-                75% 100%, 70% calc(100% - 10px),
-                65% 100%, 60% calc(100% - 10px),
-                55% 100%, 50% calc(100% - 10px),
-                45% 100%, 40% calc(100% - 10px),
-                35% 100%, 30% calc(100% - 10px),
-                25% 100%, 20% calc(100% - 10px),
-                15% 100%, 10% calc(100% - 10px),
-                5% 100%, 0 calc(100% - 10px)
+                0 0, 100% 0, 100% 80%,
+                95% 85%, 90% 80%, 85% 86%, 80% 80%,
+                75% 86%, 70% 80%, 65% 85%, 60% 80%,
+                55% 86%, 50% 80%, 45% 85%, 40% 80%,
+                35% 86%, 30% 80%, 25% 85%, 20% 80%,
+                15% 86%, 10% 80%, 5% 85%, 0 80%
             );
         }
         .recipe-card::before {
@@ -133,6 +151,7 @@
         }
 
         .torn-edge {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 98%, 90% 94%, 85% 99%, 80% 95%, 75% 98%, 70% 93%, 65% 97%, 60% 94%, 55% 99%, 50% 96%, 45% 98%, 40% 93%, 35% 97%, 30% 94%, 25% 98%, 20% 95%, 15% 99%, 10% 94%, 5% 98%, 0 95%);
             clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 98%, 90% 94%, 85% 99%, 80% 95%, 75% 98%, 70% 93%, 65% 97%, 60% 94%, 55% 99%, 50% 96%, 45% 98%, 40% 93%, 35% 97%, 30% 94%, 25% 98%, 20% 95%, 15% 99%, 10% 94%, 5% 98%, 0 95%);
         }
 
@@ -142,10 +161,24 @@
 
         .btn-md {
             @apply px-10 py-5 font-black uppercase tracking-[0.3em] text-[10px] rounded-full transition-all text-center inline-block cursor-pointer active:scale-95;
+            padding: 1.25rem 2.5rem !important;
+            font-weight: 700 !important;
+            font-size: 0.75rem !important;
+            letter-spacing: 0.2em !important;
+            border-radius: 9999px !important;
         }
 
         .input-md {
             @apply w-full bg-md-green-dark/5 border border-md-clay/10 rounded-xl p-4 text-sm font-bold focus:border-md-gold outline-none transition-all;
+            width: 100% !important;
+            background-color: rgba(30, 58, 47, 0.05) !important;
+            border: 1px solid rgba(139, 94, 60, 0.1) !important;
+            padding: 1rem !important;
+            display: block;
+        }
+
+        .input-md:focus {
+            border-color: #D4A843 !important;
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -228,8 +261,8 @@
                 <span class="lang-en hidden">"Live birds, wild turtles, field frogs, river crabs — fresh only, never frozen"</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#menu" class="btn-md bg-md-bamboo text-md-white"><span class="lang-vi">Khám Phá Thực Đơn</span><span class="lang-en hidden">Explore Menu</span></a>
-                <a href="#booking" class="btn-md bg-md-gold text-md-green-dark"><span class="lang-vi">ĐẶT BÀN NGAY</span><span class="lang-en hidden">BOOK NOW</span></a>
+                <a href="#menu" style="display:inline-block;padding:1.25rem 2.5rem;background-color:#4A6741;color:#FAF6EE;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;border:none;border-radius:9999px;cursor:pointer;text-decoration:none;"><span class="lang-vi">Khám Phá Thực Đơn</span><span class="lang-en hidden">Explore Menu</span></a>
+                <a href="#booking" style="display:inline-block;padding:1.25rem 2.5rem;background-color:#D4A843;color:#1E3A2F;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;border:none;border-radius:9999px;cursor:pointer;text-decoration:none;"><span class="lang-vi">ĐẶT BÀN NGAY</span><span class="lang-en hidden">BOOK NOW</span></a>
             </div>
         </div>
         <div id="ripples-container" class="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none overflow-hidden"></div>
