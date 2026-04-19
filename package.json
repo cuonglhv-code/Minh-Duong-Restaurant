@@ -1,0 +1,19 @@
+{
+  "name": "minh-duong-restaurant",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.103.3",
+    "resend": "^6.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vercel/node": "^5.7.11",
+    "typescript": "~5.8.2"
+  }
+}
