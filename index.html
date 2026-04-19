@@ -283,9 +283,10 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 60% 50% at 80% 40%, rgba(61, 107, 64, 0.6) 0%, transparent 70%),
-                radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184, 92, 42, 0.25) 0%, transparent 60%),
-                linear-gradient(160deg, #1a2e1b 0%, #2D4A2F 50%, #1f3a21 100%);
+                linear-gradient(to bottom, rgba(44,61,42,0.7) 0%, rgba(44,61,42,0.3) 50%, rgba(44,61,42,0.8) 100%),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         /* Decorative botanical SVG lines */
@@ -1623,16 +1624,21 @@ section, section * {
 
             <div class="menu-grid reveal" id="menuGrid">
 
-                <!-- CHIM -->
+<!-- CHIM -->
                 <div class="menu-card" data-cat="chim">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
+                        <img src="https://images.unsplash.com/photo-1591123120675-6b7e91c300c58?w=600&q=80" alt="Chim To Dần - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <span class="menu-badge">🌟 Đặc sản</span>
+                    </div>
+                    <div class="menu-card-body">
+                        <h3 class="menu-card-name">Chim To Dần Chính Hiệu</h3>
+                        <p class="menu-card-desc">Món đặc sản thương hiệu độc quyền của Minh Đương. Chim tươi sống, chế biến theo nhiều cách: quay, rang muối, hấp gừng, chiên giòn…</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-price">Liên hệ</span>
+                            <span class="menu-note">Giá theo con / kg</span>
                         </div>
+                    </div>
+                </div>
                         <span class="menu-badge">🌟 Đặc sản</span>
                     </div>
                     <div class="menu-card-body">
@@ -1663,18 +1669,11 @@ section, section * {
 
                 <div class="menu-card" data-cat="chim">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Ngỗng - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-name">Ngỗng Đủ Món</h3>
-                        <p class="menu-card-desc">Ngỗng thiên nhiên cỡ lớn. Tiết canh, luộc chấm mắm gừng, quay giòn da,
-                            xáo chuối — đặt trước để có hàng.</p>
+                        <p class="menu-card-desc">Ngỗng thiên nhiên cỡ lớn. Tiết canh, luộc chấm mắm gừng, quay giòn da, xáo chuối — đặt trước để có hàng.</p>
                         <div class="menu-card-footer">
                             <span class="menu-price">Liên hệ</span>
                             <span class="menu-note">Đặt trước 1 ngày</span>
@@ -1683,15 +1682,9 @@ section, section * {
                 </div>
 
                 <!-- ĐỒNG QUÊ -->
-                <div class="menu-card" data-cat="dong-que">
+<div class="menu-card" data-cat="dong-que">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Ba Ba - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         <span class="menu-badge">Đặc biệt</span>
                     </div>
                     <div class="menu-card-body">
@@ -1705,15 +1698,9 @@ section, section * {
                     </div>
                 </div>
 
-                <div class="menu-card" data-cat="dong-que">
+<div class="menu-card" data-cat="dong-que">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Ếch Đồng - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-name">Ếch Đồng Tươi Sống</h3>
@@ -1729,13 +1716,7 @@ section, section * {
                 <!-- THUỶ SẢN -->
                 <div class="menu-card" data-cat="hai-san">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Cua Sông - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-name">Cua Sông Tươi Sống</h3>
@@ -1748,15 +1729,9 @@ section, section * {
                     </div>
                 </div>
 
-                <div class="menu-card" data-cat="hai-san">
+<div class="menu-card" data-cat="hai-san">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80" alt="Cá Quả - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-name">Cá Quả Tươi</h3>
@@ -1769,15 +1744,9 @@ section, section * {
                     </div>
                 </div>
 
-                <div class="menu-card" data-cat="hai-san">
+<div class="menu-card" data-cat="hai-san">
                     <div class="menu-card-img">
-                        <div class="g-item-placeholder">
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Ảnh món ăn</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=600&q=80" alt="Ốc Bươu - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     <div class="menu-card-body">
                         <h3 class="menu-card-name">Ốc Bươu Đặc Sản</h3>
