@@ -1700,7 +1700,7 @@ function createMenuCard(item) {
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;padding-top:0.75rem;border-top:1px dashed #D4C4A8;">
                 <span style="font-size:1.1rem;font-weight:700;color:#C8942A;">${formatPrice(item.price, item.price_unit)}</span>
-                <button onclick="addToCart('${item.id}','${name.replace(/'/g,"\\'")}',${item.price})" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #2C3D2A;background:transparent;color:#2C3D2A;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;" onmouseover="this.style.background='#2C3D2A';this.style.color='#F5EDD6'" onmouseout="this.style.background='transparent';this.style.color='#2C3D2A'" title="Thêm vào giỏ">+</button>
+                <button onclick="addToCart(event, '${item.id}','${name.replace(/'/g,"\\'")}',${item.price})" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #2C3D2A;background:transparent;color:#2C3D2A;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;" onmouseover="this.style.background='#2C3D2A';this.style.color='#F5EDD6'" onmouseout="this.style.background='transparent';this.style.color='#2C3D2A'" title="Thêm vào giỏ">+</button>
             </div>
         </div>
     </div>`;
@@ -1710,6 +1710,7 @@ async function loadMenu() {
     const loading = document.getElementById('menuLoading');
     const error = document.getElementById('menuError');
     const grid = document.getElementById('menuGrid');
+    if (!loading || !error || !grid) return;
     
     loading.style.display = 'block';
     error.style.display = 'none';
@@ -1744,14 +1745,16 @@ async function loadMenu() {
 
 // Cart functions
 const cart = new Map();
-function addToCart(id, name, price) {
+function addToCart(evt, id, name, price) {
     const qty = cart.get(id)?.qty || 0;
     cart.set(id, { name, price, qty: qty + 1 });
     updateCartUI();
     // Simple feedback
-    const btn = event.target;
+    const btn = evt?.currentTarget;
+    if (btn) {
     btn.textContent = '✓';
     setTimeout(() => btn.textContent = '+', 800);
+    }
 }
 
 function updateCartUI() {
@@ -1767,7 +1770,8 @@ function updateCartUI() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('menuLoading').style.display = 'block';
+    const menuLoading = document.getElementById('menuLoading');
+    if (menuLoading) menuLoading.style.display = 'block';
     loadMenu();
 });
 </script>
@@ -2033,21 +2037,9 @@ document.addEventListener('DOMContentLoaded', () => {
      JAVASCRIPT
      ═══════════════════════════════════════════════ -->
     <script>
-        /* ── Set min date for booking to today ── */
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
-
         /* ── Mobile menu ── */
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('open');
-        }
-
-        /* ── Menu filter ── */
-        function filterMenu(cat, btn) {
-            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.menu-card').forEach(card => {
-                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
-            });
         }
 
         /* Scroll reveal — force visible baseline + safety timeout */
@@ -2062,48 +2054,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.style.transform = 'translateY(0)';
             });
         }, 1500);
-
-        /* ĐẶT BÀN — KẾT NỐI GOOGLE SHEETS */════
-        
-           HƯỚNG DẪN THIẾT LẬP (Làm 1 lần — mất khoảng 10 phút):
-        
-           BƯỚC 1: Tạo Google Sheet mới
-           - Vào https://sheets.google.com → Tạo bảng tính mới
-           - Đặt tên: "Đặt Bàn – Minh Đương"
-           - Hàng đầu tiên thêm các cột:
-             A: Thời gian gửi | B: Họ tên | C: Điện thoại | D: Ngày đến
-             E: Giờ đến | F: Số người | G: Chi nhánh | H: Món dự kiến | I: Ghi chú
-        
-           BƯỚC 2: Tạo Google Apps Script
-           - Trong Google Sheet: Extensions → Apps Script
-           - Xoá code mặc định, dán code này vào:
-        
-           ─────────────────────────────────────────────────────
-           function doPost(e) {
-             var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-             var data = JSON.parse(e.postData.contents);
-             sheet.appendRow([
-               new Date().toLocaleString('vi-VN'),
-               data.name, data.phone, data.date, data.time,
-               data.guests, data.branch, data.dishes, data.note
-             ]);
-             return ContentService
-               .createTextOutput(JSON.stringify({result: 'success'}))
-               .setMimeType(ContentService.MimeType.JSON);
-           }
-           ─────────────────────────────────────────────────────
-        
-           BƯỚC 3: Deploy (Triển khai)
-           - Click Deploy → New deployment
-           - Type: Web app
-           - Execute as: Me
-           - Who has access: Anyone
-           - Click Deploy → Copy URL (dạng: https://script.google.com/macros/s/ABC.../exec)
-        
-           BƯỚC 4: Dán URL vào dòng dưới đây:
-           ══════════════════════════════════════════════════════ */
-
-        const GOOGLE_SCRIPT_URL = 'DÁN_URL_GOOGLE_APPS_SCRIPT_VÀO_ĐÂY';
 
         // Initialize guest stepper
         document.getElementById('guestMinus')?.addEventListener('click', () => {
@@ -2123,7 +2073,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Booking form submit handler
         const bookingForm = document.getElementById('bookingForm');
-        bookingForm.addEventListener('submit', async function(e) {
+        bookingForm?.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Clear previous errors
@@ -2295,6 +2245,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (response.ok && result.success) {
+                    const initialStamps = Number(result.initialStamps) || 0;
+                    const remainingStamps = Math.max(10 - initialStamps, 0);
                     this.innerHTML = `
                         <div style="text-align:center; padding:1rem;">
                             <div style="font-size:2.5rem;">🐦</div>
@@ -2305,10 +2257,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 Bạn đã tham gia Câu Lạc Bộ Thực Khách Minh Đương
                             </p>
                             <div style="display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin:1rem 0;">
-                                ${'🐦'.repeat(3)}${'⭕'.repeat(7)}
+                                ${'🐦'.repeat(initialStamps)}${'⭕'.repeat(remainingStamps)}
                             </div>
                             <p style="font-size:0.8rem; color:#A67C52;">
-                                3/10 tem • Còn 7 tem nữa để nhận Chim To Dần Quay miễn phí!
+                                ${initialStamps}/10 tem • Còn ${remainingStamps} tem nữa để nhận Chim To Dần Quay miễn phí!
                             </p>
                         </div>
                     `;

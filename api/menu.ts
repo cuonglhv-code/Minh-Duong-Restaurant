@@ -38,7 +38,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .eq('is_available', true)
       .order('sort_order');
 
-    if (category && category !== 'all' && category !== 'all') {
+    if (category && category !== 'all') {
       const cat = categories?.find(c => c.slug === category);
       if (cat) query = query.eq('category_id', cat.id);
     }

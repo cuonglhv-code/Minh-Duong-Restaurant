@@ -68,9 +68,6 @@ export const buildBookingEmail = (props: BookingEmailProps): string => {
             <!-- Actions -->
             <div style="text-align: center; margin-top: 30px;">
                 <p style="color: #666; font-size: 12px; margin-bottom: 15px;">Hành động quản lý (ID: ${props.bookingId})</p>
-                <a href="https://console.firebase.google.com/project/_/firestore/data/bookings/${props.bookingId}" style="display: inline-block; background-color: #1E3A2F; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: bold; margin: 0 5px;">
-                    📋 Xem trên Firebase
-                </a>
                 <a href="tel:${props.customerPhone}" style="display: inline-block; background-color: #D4A843; color: #1E3A2F; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: bold; margin: 0 5px;">
                     📞 Gọi Khách Hàng
                 </a>
