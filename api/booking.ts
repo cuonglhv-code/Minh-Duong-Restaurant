@@ -71,29 +71,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) throw error;
 
-    // Send owner notification email via Resend
-    await resend.emails.send({
-      from: process.env.FROM_EMAIL!,
-      to: process.env.OWNER_EMAIL!,
-      subject: `🐦 Đặt Bàn Mới – ${customerName.trim()} – ${bookingDate} ${bookingTime} – ${branchLabel}`,
-      html: buildBookingEmail({
-        customerName: customerName.trim(),
-        customerPhone: customerPhone.trim(),
-        branch: branchLabel,
-        guestCount: Number(guestCount),
-        bookingDate,
-        bookingTime,
-        specialRequests: specialRequests?.trim() || 'Không có',
-        bookingId: data.id,
-        createdAt: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
-      })
-    });
+    // Send owner notification email — non-fatal if it fails
+    try {
+      await resend.emails.send({
+        from: 'onboarding@resend.dev',
+        to: process.env.OWNER_EMAIL!,
+        subject: `🐦 Đặt Bàn Mới – ${customerName.trim()} – ${bookingDate} ${bookingTime} – ${branchLabel}`,
+        html: buildBookingEmail({
+          customerName: customerName.trim(),
+          customerPhone: customerPhone.trim(),
+          branch: branchLabel,
+          guestCount: Number(guestCount),
+          bookingDate,
+          bookingTime,
+          specialRequests: specialRequests?.trim() || 'Không có',
+          bookingId: data.id,
+          createdAt: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
+        })
+      });
 
-    // Update notified_at timestamp
-    await supabase
-      .from('bookings')
-      .update({ notified_at: new Date().toISOString() })
-      .eq('id', data.id);
+      await supabase
+        .from('bookings')
+        .update({ notified_at: new Date().toISOString() })
+        .eq('id', data.id);
+    } catch (emailErr) {
+      console.error('Email notification failed (non-fatal):', emailErr);
+    }
 
     return res.status(200).json({ success: true, bookingId: data.id });
   } catch (err) {
