@@ -284,7 +284,7 @@
             inset: 0;
             background:
                 linear-gradient(to bottom, rgba(44,61,42,0.7) 0%, rgba(44,61,42,0.3) 50%, rgba(44,61,42,0.8) 100%),
-                url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1920&q=80');
+                url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -1431,7 +1431,6 @@ section, section * {
         <ul class="nav-links">
             <li><a href="#gioi-thieu">Giới thiệu</a></li>
             <li><a href="#thuc-don">Thực đơn</a></li>
-            <li><a href="#hinh-anh">Hình ảnh</a></li>
             <li><a href="#dat-ban" class="nav-cta">Đặt bàn</a></li>
         </ul>
         <div class="hamburger" onclick="toggleMenu()">
@@ -1444,7 +1443,6 @@ section, section * {
         <button class="mobile-close" onclick="toggleMenu()">✕</button>
         <a href="#gioi-thieu" onclick="toggleMenu()">Giới thiệu</a>
         <a href="#thuc-don" onclick="toggleMenu()">Thực đơn</a>
-        <a href="#hinh-anh" onclick="toggleMenu()">Hình ảnh</a>
         <a href="#dat-ban" onclick="toggleMenu()">Đặt bàn</a>
         <a href="tel:0979292888" style="color:var(--gold);">☎ 0979.292.888</a>
     </div>
@@ -1803,70 +1801,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- GALLERY SECTION -->
-    <section class="gallery-section" id="hinh-anh">
-        <div class="container">
-            <div class="gallery-intro reveal">
-                <p class="section-label">Hình ảnh</p>
-                <h2 class="section-title">Không gian &amp; món ngon</h2>
-                <p class="section-sub">Trải nghiệm không gian đồng quê bên hồ — nơi mỗi bữa ăn là một kỷ niệm đáng nhớ.
-                </p>
-            </div>
-
-            <div class="gallery-grid reveal">
-                <!--
-        HƯỚNG DẪN: Thay thế các div.g-item-placeholder bằng:
-        <img src="anh-1.jpg" alt="Mô tả ảnh">
-      -->
-                <div class="g-item g1">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>Không gian nhà hàng</span></div>
-                </div>
-                <div class="g-item g2">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>Chim To Dần đặc sản</span></div>
-                </div>
-                <div class="g-item g3">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>View hồ</span></div>
-                </div>
-                <div class="g-item g4">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>Ba Ba thiên nhiên</span></div>
-                </div>
-                <div class="g-item g5">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>Bàn tiệc gia đình</span></div>
-                </div>
-                <div class="g-item g6">
-                    <div class="g-item-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg><span>Ếch đồng & Cua sông</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-cta reveal">
-                <a href="https://www.facebook.com/nhahangminhduongnew" target="_blank" rel="noopener">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
-                    Xem thêm ảnh trên Facebook của chúng tôi
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- ═══════════════════════════════════════════════
      ĐẶT BÀN
@@ -2029,7 +1963,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li><a href="#home">Trang chủ</a></li>
                     <li><a href="#gioi-thieu">Giới thiệu</a></li>
                     <li><a href="#thuc-don">Thực đơn</a></li>
-                    <li><a href="#hinh-anh">Hình ảnh</a></li>
                     <li><a href="#dat-ban">Đặt bàn</a></li>
                 </ul>
             </div>
