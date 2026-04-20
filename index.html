@@ -1604,171 +1604,175 @@ section, section * {
     <!-- ═══════════════════════════════════════════════
      THỰC ĐƠN
      ═══════════════════════════════════════════════ -->
-    <section class="menu-section" id="thuc-don">
-        <div class="container">
-            <div class="menu-intro reveal">
-                <p class="section-label">Thực đơn đặc sắc</p>
-                <h2 class="section-title">Món ngon chính hiệu<br>từ thiên nhiên</h2>
-                <p class="section-sub">
-                    Tất cả nguyên liệu đều tươi sống, thiên nhiên. Giá có thể thay đổi theo mùa — vui lòng gọi
-                    0979.292.888 để hỏi giá mới nhất.
-                </p>
-            </div>
-
-            <div class="menu-categories reveal">
-                <button class="cat-btn active" onclick="filterMenu('all', this)">Tất cả</button>
-                <button class="cat-btn" onclick="filterMenu('chim', this)">Chim đặc sản</button>
-                <button class="cat-btn" onclick="filterMenu('dong-que', this)">Đồng quê</button>
-                <button class="cat-btn" onclick="filterMenu('hai-san', this)">Thuỷ sản</button>
-            </div>
-
-            <div class="menu-grid reveal" id="menuGrid">
-
-<!-- CHIM -->
-                <div class="menu-card" data-cat="chim">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1591123120675-6b7e91c300c58?w=600&q=80" alt="Chim To Dần - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <span class="menu-badge">🌟 Đặc sản</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Chim To Dần Chính Hiệu</h3>
-                        <p class="menu-card-desc">Món đặc sản thương hiệu độc quyền của Minh Đương. Chim tươi sống, chế biến theo nhiều cách: quay, rang muối, hấp gừng, chiên giòn…</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Giá theo con / kg</span>
-                        </div>
-                    </div>
-                </div>
-                        <span class="menu-badge">🌟 Đặc sản</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Chim To Dần Chính Hiệu</h3>
-                        <p class="menu-card-desc">Món đặc sản thương hiệu độc quyền của Minh Đương. Chim tươi sống, chế
-                            biến theo nhiều cách: quay, rang muối, hấp gừng, chiên giòn…</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Giá theo con / kg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card" data-cat="chim">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Vịt Trời" style="width:100%;height:100%;object-fit:cover;">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Vịt Trời Đủ Món</h3>
-                        <p class="menu-card-desc">Vịt trời tươi sống từ thiên nhiên. Chế biến: nướng chao, quay mật ong,
-                            lẩu, rang muối tiêu xanh đặc biệt.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg / con</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card" data-cat="chim">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Ngỗng - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Ngỗng Đủ Món</h3>
-                        <p class="menu-card-desc">Ngỗng thiên nhiên cỡ lớn. Tiết canh, luộc chấm mắm gừng, quay giòn da, xáo chuối — đặt trước để có hàng.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Đặt trước 1 ngày</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ĐỒNG QUÊ -->
-<div class="menu-card" data-cat="dong-que">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Ba Ba - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <span class="menu-badge">Đặc biệt</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Ba Ba Thiên Nhiên</h3>
-                        <p class="menu-card-desc">Ba ba thiên nhiên, không nuôi nhốt. Các món: cháo ba ba, ba ba hầm
-                            thuốc bắc, lẩu ba ba đặc biệt, rang me.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg, tươi sống</span>
-                        </div>
-                    </div>
-                </div>
-
-<div class="menu-card" data-cat="dong-que">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Ếch Đồng - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Ếch Đồng Tươi Sống</h3>
-                        <p class="menu-card-desc">Ếch đồng thiên nhiên, không dùng ếch nuôi. Nấu lẩu, chiên sả ớt, rang
-                            muối, cháo ếch đậu xanh thơm ngon.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- THUỶ SẢN -->
-                <div class="menu-card" data-cat="hai-san">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Cua Sông - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Cua Sông Tươi Sống</h3>
-                        <p class="menu-card-desc">Cua sông tự nhiên, gạch vàng, thịt chắc. Hấp bia, rang muối, nấu canh
-                            rau đay — đúng hương vị đồng quê.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg</span>
-                        </div>
-                    </div>
-                </div>
-
-<div class="menu-card" data-cat="hai-san">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80" alt="Cá Quả - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Cá Quả Tươi</h3>
-                        <p class="menu-card-desc">Cá quả (cá lóc) sông, còn sống khi chế biến. Hấp gừng hành, lẩu cá quả
-                            nấu me, nướng lá chuối đặc sắc.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg</span>
-                        </div>
-                    </div>
-                </div>
-
-<div class="menu-card" data-cat="hai-san">
-                    <div class="menu-card-img">
-                        <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=600&q=80" alt="Ốc Bươu - Nhà Hàng Minh Đương" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div class="menu-card-body">
-                        <h3 class="menu-card-name">Ốc Bươu Đặc Sản</h3>
-                        <p class="menu-card-desc">Ốc bươu tươi, nấu chuối đậu, nhồi thịt hấp sả, xào tỏi ớt. Ăn kèm bún
-                            hoặc cơm đều tuyệt vời.</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">Liên hệ</span>
-                            <span class="menu-note">Theo kg</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <p style="text-align:center;margin-top:2rem;font-size:13px;color:var(--text-light);">
-                Thực đơn đầy đủ và giá mới nhất — gọi <strong style="color:var(--terra);">0979.292.888</strong>
-            </p>
+    <section class="menu-section" id="thuc-don" style="background:#F5EDD6; padding:5rem 0;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
+        <div class="menu-intro reveal" style="text-align:center; margin-bottom:3rem;">
+            <p style="font-size:0.75rem; letter-spacing:0.2em; color:#A67C52; text-transform:uppercase; margin-bottom:0.5rem;">THỰC ĐƠN ĐẶC SẮC</p>
+            <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3rem); color:#2C3D2A; margin-bottom:0.5rem;">Tinh Hoa Từ Thiên Nhiên</h2>
+            <p style="color:#A67C52; font-style:italic;">Mỗi món ăn là một câu chuyện từ ruộng đồng</p>
         </div>
-    </section>
+        <div id="menuTabs" style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem;">
+            <button class="cat-btn active" onclick="filterMenu('all', this)">Tất cả</button>
+            <button class="cat-btn" onclick="filterMenu('chim', this)">Chim đặc sản</button>
+            <button class="cat-btn" onclick="filterMenu('ba-ba-ech', this)">Ba Ba & Ếch</button>
+            <button class="cat-btn" onclick="filterMenu('cua-ca', this)">Cua & Cá</button>
+            <button class="cat-btn" onclick="filterMenu('dac-san', this)">Đặc sản</button>
+            <button class="cat-btn" onclick="filterMenu('do-uong', this)">Đồ uống</button>
+        </div>
+        <div id="menuLoading" style="display:none; text-align:center; padding:3rem;">
+            <div style="display:inline-block; width:40px; height:40px; border:3px solid #E8EFE0; border-top-color:#2C3D2A; border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+            <p style="color:#A67C52; margin-top:1rem;">Đang tải thực đơn...</p>
+        </div>
+        <div id="menuError" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#C0392B; font-size:1.1rem;">⚠️ Không thể tải thực đơn</p>
+            <button onclick="loadMenu(currentCat)" style="margin-top:1rem; padding:0.5rem 1.5rem; background:#2C3D2A; color:#F5EDD6; border:none; border-radius:6px; cursor:pointer;">Thử Lại</button>
+        </div>
+        <div class="menu-grid reveal" id="menuGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem;"></div>
+    </div>
+</section>
 
-    <!-- ═══════════════════════════════════════════════
-     HÌNH ẢNH
-     ═══════════════════════════════════════════════ -->
+<!-- ===== DYNAMIC MENU SYSTEM ===== -->
+<script>
+// Add spin animation
+const menuStyle = document.createElement('style');
+menuStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+document.head.appendChild(menuStyle);
+
+let currentCat = 'all';
+let menuData = { categories: [], items: [] };
+
+function formatPrice(amount, unit) {
+    return amount.toLocaleString('vi-VN') + 'đ/' + unit;
+}
+
+function filterMenu(slug, btn) {
+    currentCat = slug;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderMenuItems(slug);
+}
+
+function renderMenuItems(slug) {
+    const grid = document.getElementById('menuGrid');
+    if (!grid) return;
+
+    const items = slug === 'all' 
+        ? menuData.items 
+        : menuData.items.filter(i => i.menu_categories?.slug === slug);
+
+    if (items.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem; color:#A67C52;"><p>Không có món trong danh mục này.</p></div>';
+        return;
+    }
+
+    grid.innerHTML = items.map(item => createMenuCard(item)).join('');
+    grid.querySelectorAll('.menu-card').forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, i * 80);
+    });
+}
+
+function createMenuCard(item) {
+    const name = item.name_vi;
+    const desc = item.description_vi || '';
+    const badges = [];
+    if (item.is_signature) badges.push('<span style="background:#C8942A; color:#fff; font-size:0.65rem; padding:2px 8px; border-radius:999px; font-weight:700; letter-spacing:0.05em;">✦ ĐẶC SẢN</span>');
+    if (item.is_seasonal) badges.push('<span style="background:#2C3D2A; color:#F5EDD6; font-size:0.65rem; padding:2px 8px; border-radius:999px; font-weight:700;">🌿 THEO MÙA</span>');
+
+    const imgHtml = item.image_url 
+        ? `<img src="${item.image_url}" alt="${name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">`
+        : `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#A67C52;font-size:3rem;">${item.menu_categories?.icon || '🍽️'}</div>`;
+
+    return `<div class="menu-card" style="background:#FAF6EE;border-radius:12px;overflow:hidden;border:1px solid rgba(164,124,82,0.2);box-shadow:0 2px 12px rgba(44,61,42,0.06);display:flex;flex-direction:column;position:relative;">
+        <div style="height:200px;overflow:hidden;background:#E8EFE0;position:relative;flex-shrink:0;">
+            ${imgHtml}
+            ${badges.length ? `<div style="position:absolute;top:0.75rem;left:0.75rem;display:flex;flex-direction:column;gap:4px;">${badges.join('')}</div>` : ''}
+        </div>
+        <div style="padding:1.25rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+                <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#2C3D2A;margin:0 0 0.4rem 0;line-height:1.3;">${name}</h3>
+                ${desc ? `<p style="font-size:0.85rem;color:#7A6A55;font-style:italic;margin:0 0 1rem 0;line-height:1.5;">${desc}</p>` : ''}
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;padding-top:0.75rem;border-top:1px dashed #D4C4A8;">
+                <span style="font-size:1.1rem;font-weight:700;color:#C8942A;">${formatPrice(item.price, item.price_unit)}</span>
+                <button onclick="addToCart('${item.id}','${name.replace(/'/g,"\\'")}',${item.price})" style="width:36px;height:36px;border-radius:50%;border:1.5px solid #2C3D2A;background:transparent;color:#2C3D2A;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;" onmouseover="this.style.background='#2C3D2A';this.style.color='#F5EDD6'" onmouseout="this.style.background='transparent';this.style.color='#2C3D2A'" title="Thêm vào giỏ">+</button>
+            </div>
+        </div>
+    </div>`;
+}
+
+async function loadMenu() {
+    const loading = document.getElementById('menuLoading');
+    const error = document.getElementById('menuError');
+    const grid = document.getElementById('menuGrid');
+    
+    loading.style.display = 'block';
+    error.style.display = 'none';
+    grid.style.display = 'none';
+
+    try {
+        const res = await fetch('/api/menu');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error);
+        
+        menuData = data;
+        
+        // Render tab labels from DB
+        const tabs = document.getElementById('menuTabs');
+        if (tabs && menuData.categories.length > 0) {
+            const btns = tabs.querySelectorAll('.cat-btn:not(:first-child)');
+            btns.forEach((btn, i) => {
+                if (menuData.categories[i]) {
+                    btn.textContent = menuData.categories[i].icon + ' ' + menuData.categories[i].name_vi;
+                }
+            });
+        }
+        
+        renderMenuItems(currentCat);
+        loading.style.display = 'none';
+    } catch (err) {
+        console.error('Menu error:', err);
+        loading.style.display = 'none';
+        error.style.display = 'block';
+    }
+}
+
+// Cart functions
+const cart = new Map();
+function addToCart(id, name, price) {
+    const qty = cart.get(id)?.qty || 0;
+    cart.set(id, { name, price, qty: qty + 1 });
+    updateCartUI();
+    // Simple feedback
+    const btn = event.target;
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = '+', 800);
+}
+
+function updateCartUI() {
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+        let total = 0;
+        cart.forEach(item => total += item.qty);
+        badge.textContent = total;
+        const floater = document.getElementById('cartFloater');
+        if (floater && total > 0) floater.classList.remove('hidden');
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('menuLoading').style.display = 'block';
+    loadMenu();
+});
+</script>
+
+<!-- GALLERY SECTION -->
     <section class="gallery-section" id="hinh-anh">
         <div class="container">
             <div class="gallery-intro reveal">
