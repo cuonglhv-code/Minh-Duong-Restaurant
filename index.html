@@ -2094,26 +2094,36 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Đang gửi...';
 
             try {
-                const response = await fetch('/api/booking', {
+                const branchLabel = formData.branch === 'hanoi'
+                    ? 'Hà Nội – Số 2, Ngõ 295 Ngọc Thụy, Long Biên'
+                    : 'Hải Phòng – Số 271 Cầu Đen, Kiến Thụy';
+                const dateFormatted = new Date(formData.bookingDate + 'T00:00:00')
+                    .toLocaleDateString('vi-VN', {
+                        weekday: 'long', day: '2-digit',
+                        month: '2-digit', year: 'numeric'
+                    });
+
+                const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({
+                        access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+                        subject: `🐦 Đặt Bàn Mới – ${formData.customerName} – ${dateFormatted} ${formData.bookingTime}`,
+                        from_name: 'Nhà Hàng Minh Đương',
+                        'Họ và tên': formData.customerName,
+                        'Số điện thoại': formData.customerPhone,
+                        'Chi nhánh': branchLabel,
+                        'Số khách': formData.guestCount + ' người',
+                        'Ngày đến': dateFormatted,
+                        'Giờ đến': formData.bookingTime,
+                        'Ghi chú': formData.specialRequests || 'Không có',
+                        botcheck: ''
+                    })
                 });
 
                 const result = await response.json();
 
-                if (response.ok && result.success) {
-                    // Format date for display
-                    const dateFormatted = new Date(formData.bookingDate + 'T00:00:00')
-                        .toLocaleDateString('vi-VN', { 
-                            weekday: 'long', day: '2-digit', 
-                            month: '2-digit', year: 'numeric' 
-                        });
-                    const branchLabel = formData.branch === 'hanoi' 
-                        ? 'Hà Nội (Long Biên)' 
-                        : 'Hải Phòng (Kiến Thụy)';
-
-                    // Replace form with success card
+                if (result.success) {
                     bookingForm.innerHTML = `
                         <div style="text-align:center; padding:2rem;">
                             <div style="font-size:3rem; margin-bottom:1rem;">🐦</div>
@@ -2121,7 +2131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 Đặt Bàn Thành Công!
                             </h3>
                             <p style="color:#2A2017;margin-bottom:0.25rem;">
-                                Xin chào <strong>${formData.customerName}</strong>, 
+                                Xin chào <strong>${formData.customerName}</strong>,
                                 chúng tôi đã nhận được yêu cầu của bạn.
                             </p>
                             <div style="background:#E8EFE0;border-radius:8px;padding:1rem;margin:1rem 0;text-align:left;">
@@ -2129,33 +2139,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p>👥 <strong>Số khách:</strong> ${formData.guestCount} người</p>
                                 <p>📅 <strong>Ngày:</strong> ${dateFormatted}</p>
                                 <p>🕐 <strong>Giờ:</strong> ${formData.bookingTime}</p>
-                                ${formData.specialRequests ? 
+                                ${formData.specialRequests ?
                                     `<p>📝 <strong>Ghi chú:</strong> ${formData.specialRequests}</p>` : ''}
                             </div>
                             <p style="color:#A67C52;font-size:0.9rem;">
-                                Nhà hàng sẽ gọi xác nhận qua 
+                                Nhà hàng sẽ gọi xác nhận qua
                                 <strong>${formData.customerPhone}</strong> trong vòng 15 phút.
                             </p>
                             <a href="tel:0979292888" style="display:inline-block;margin-top:1rem;padding:0.75rem 2rem;background:#C8942A;color:#fff;border-radius:6px;text-decoration:none;font-weight:700;">📞 0979.292.888</a>
                         </div>
                     `;
-                } else if (response.status === 400 && result.errors) {
-                    // Show API validation errors
-                    Object.entries(result.errors).forEach(([field, message]) => {
-                        const input = bookingForm.querySelector(`[name="${field}"]`);
-                        if (input) {
-                            input.style.borderColor = '#C0392B';
-                            const errorEl = document.createElement('span');
-                            errorEl.className = 'field-error';
-                            errorEl.style.cssText = 'color:#C0392B;font-size:0.75rem;display:block;margin-top:0.25rem;';
-                            errorEl.textContent = message;
-                            input.parentNode.appendChild(errorEl);
-                        }
-                    });
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
                 } else {
-                    throw new Error('Server error');
+                    throw new Error(result.message || 'Web3Forms error');
                 }
             } catch(err) {
                 submitBtn.disabled = false;
