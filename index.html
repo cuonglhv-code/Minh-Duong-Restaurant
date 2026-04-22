@@ -2107,7 +2107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+                        access_key: 'b918cea8-1a5d-4378-b7ca-97be7d5e3245',
                         subject: `🐦 Đặt Bàn Mới – ${formData.customerName} – ${dateFormatted} ${formData.bookingTime}`,
                         from_name: 'Nhà Hàng Minh Đương',
                         'Họ và tên': formData.customerName,
@@ -2202,7 +2202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok && result.success) {
                     const initialStamps = Number(result.initialStamps) || 0;
                     const remainingStamps = Math.max(10 - initialStamps, 0);
-                    this.innerHTML = `
+                    document.querySelector('#loyaltyModal > div').innerHTML = `
                         <div style="text-align:center; padding:1rem;">
                             <div style="font-size:2.5rem;">🐦</div>
                             <h4 style="font-family:'Playfair Display',serif; color:#2C3D2A; margin:0.5rem 0;">
@@ -2219,8 +2219,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </p>
                         </div>
                     `;
-                } else if (response.status === 400) {
-                    alert(result.errors?.phone || 'Số điện thoại này đã đăng ký. Gọi 0979.292.888 để kiểm tra điểm.');
+                } else if (response.status === 409) {
+                    alert(result.error || 'Số điện thoại này đã đăng ký. Gọi 0979.292.888 để kiểm tra điểm.');
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 } else {
