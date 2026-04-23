@@ -718,138 +718,55 @@
             background: var(--cream);
         }
 
-        .menu-intro {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .menu-categories {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .cat-btn {
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 500;
-            padding: 8px 20px;
-            border-radius: 99px;
-            border: 1.5px solid var(--green-mid);
-            background: transparent;
-            color: var(--green-mid);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .cat-btn.active,
-        .cat-btn:hover {
-            background: var(--green-deep);
-            border-color: var(--green-deep);
-            color: var(--cream);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .menu-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
+        .menu-list {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid rgba(164, 124, 82, 0.18);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.25s, box-shadow 0.25s;
-            border: 1px solid rgba(92, 61, 30, 0.08);
+            box-shadow: 0 2px 16px rgba(44,61,42,0.07);
         }
 
-        .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .menu-card-img {
-            width: 100%;
-            aspect-ratio: 16/10;
-            background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
-            overflow: hidden;
-            position: relative;
+        .menu-list-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(245, 239, 224, 0.3);
-            font-size: 13px;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .menu-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            inset: 0;
-        }
-
-        .menu-card-img svg {
-            width: 36px;
-            opacity: 0.3;
-        }
-
-        .menu-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--terra);
-            color: var(--white);
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 99px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .menu-card-body {
-            padding: 1.25rem;
-        }
-
-        .menu-card-name {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            color: var(--green-deep);
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-card-desc {
-            font-size: 13px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .menu-card-footer {
-            display: flex;
-            align-items: center;
+            align-items: baseline;
             justify-content: space-between;
-            border-top: 1px solid var(--cream-dark);
-            padding-top: 0.85rem;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(164, 124, 82, 0.1);
+            transition: background 0.15s;
         }
 
-        .menu-price {
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            color: var(--terra);
+        .menu-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-list-item:hover {
+            background: #fdf8f0;
+        }
+
+        .menu-list-name {
+            font-size: 1rem;
             font-weight: 600;
+            color: #2C3D2A;
+            line-height: 1.4;
         }
 
-        .menu-note {
-            font-size: 11px;
-            color: var(--text-light);
+        .menu-list-note {
+            font-size: 0.78rem;
+            color: #9b8870;
             font-style: italic;
+            font-weight: 400;
+        }
+
+        .menu-list-price {
+            white-space: nowrap;
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #C8942A;
+            flex-shrink: 0;
         }
 
         /* ═══════════════════════════════════════════════
@@ -1706,202 +1623,79 @@ section, section * {
      ═══════════════════════════════════════════════ -->
     <section class="menu-section" id="thuc-don" style="background:#F5EDD6; padding:5rem 0;">
     <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
-        <div class="menu-intro reveal" style="text-align:center; margin-bottom:3rem;">
+        <div class="reveal" style="text-align:center; margin-bottom:3rem;">
             <p style="font-size:0.75rem; letter-spacing:0.2em; color:#A67C52; text-transform:uppercase; margin-bottom:0.5rem;">THỰC ĐƠN ĐẶC SẮC</p>
             <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3rem); color:#2C3D2A; margin-bottom:0.5rem;">Tinh Hoa Từ Thiên Nhiên</h2>
             <p style="color:#A67C52; font-style:italic;">Mỗi món ăn là một câu chuyện từ ruộng đồng</p>
         </div>
-        <div id="menuTabs" style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem;">
-            <button class="cat-btn active" onclick="filterMenu('all', this)">Tất cả</button>
-            <button class="cat-btn" onclick="filterMenu('chim', this)">Chim đặc sản</button>
-            <button class="cat-btn" onclick="filterMenu('ba-ba-ech', this)">Ba Ba & Ếch</button>
-            <button class="cat-btn" onclick="filterMenu('cua-ca', this)">Cua & Cá</button>
-            <button class="cat-btn" onclick="filterMenu('dac-san', this)">Đặc sản</button>
-            <button class="cat-btn" onclick="filterMenu('do-uong', this)">Đồ uống</button>
+        <div class="menu-list reveal">
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Vịt trời</div>
+                </div>
+                <div class="menu-list-price">400.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Le le</div>
+                </div>
+                <div class="menu-list-price">800.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Ốc Bươu hấp mẻ</div>
+                </div>
+                <div class="menu-list-price">250.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Ếch đồng</div>
+                    <div class="menu-list-note">1kg ếch tươi</div>
+                </div>
+                <div class="menu-list-price">300.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Bún riêu cua</div>
+                    <div class="menu-list-note">1kg cua tươi</div>
+                </div>
+                <div class="menu-list-price">600.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Bồ câu</div>
+                </div>
+                <div class="menu-list-price">300.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Ba ba thiên nhiên</div>
+                    <div class="menu-list-note">1 con</div>
+                </div>
+                <div class="menu-list-price">1.500.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Xôi chim</div>
+                    <div class="menu-list-note">1kg thịt chim tươi</div>
+                </div>
+                <div class="menu-list-price">150.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Ngó sen xào tỏi</div>
+                </div>
+                <div class="menu-list-price">70.000đ / phần</div>
+            </div>
+            <div class="menu-list-item">
+                <div>
+                    <div class="menu-list-name">Cá song</div>
+                </div>
+                <div class="menu-list-price">650.000đ / phần</div>
+            </div>
         </div>
-        <div id="menuLoading" style="display:none; text-align:center; padding:3rem;">
-            <div style="display:inline-block; width:40px; height:40px; border:3px solid #E8EFE0; border-top-color:#2C3D2A; border-radius:50%; animation:spin 0.8s linear infinite;"></div>
-            <p style="color:#A67C52; margin-top:1rem;">Đang tải thực đơn...</p>
-        </div>
-        <div id="menuError" style="display:none; text-align:center; padding:3rem;">
-            <p style="color:#C0392B; font-size:1.1rem;">⚠️ Không thể tải thực đơn</p>
-            <button onclick="loadMenu(currentCat)" style="margin-top:1rem; padding:0.5rem 1.5rem; background:#2C3D2A; color:#F5EDD6; border:none; border-radius:6px; cursor:pointer;">Thử Lại</button>
-        </div>
-        <div id="menuGrid"></div>
     </div>
 </section>
-
-<!-- ===== DYNAMIC MENU SYSTEM ===== -->
-<script>
-// Add spin animation
-const menuStyle = document.createElement('style');
-menuStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-document.head.appendChild(menuStyle);
-
-let currentCat = 'all';
-let menuData = { categories: [], items: [] };
-
-function formatPrice(amount, unit) {
-    return amount.toLocaleString('vi-VN') + 'đ / ' + unit;
-}
-
-function filterMenu(slug, btn) {
-    currentCat = slug;
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderMenuItems(slug);
-}
-
-function renderMenuItems(slug) {
-    const grid = document.getElementById('menuGrid');
-    if (!grid) return;
-
-    const allItems = slug === 'all'
-        ? menuData.items
-        : menuData.items.filter(i => i.menu_categories?.slug === slug);
-
-    if (allItems.length === 0) {
-        grid.innerHTML = '<p style="text-align:center;padding:3rem;color:#A67C52;">Không có món trong danh mục này.</p>';
-        return;
-    }
-
-    // Group by category
-    const groups = {};
-    allItems.forEach(item => {
-        const cat = item.menu_categories?.slug || 'other';
-        if (!groups[cat]) groups[cat] = { label: item.menu_categories, items: [] };
-        groups[cat].items.push(item);
-    });
-
-    const showHeadings = slug === 'all';
-    grid.innerHTML = Object.values(groups).map(g => `
-        ${showHeadings ? `<div style="display:flex;align-items:center;gap:0.75rem;margin:2rem 0 1rem;">
-            <span style="font-size:1.5rem;">${g.label?.icon || '🍽️'}</span>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;color:#2C3D2A;margin:0;">${g.label?.name_vi || ''}</h3>
-            <div style="flex:1;height:1px;background:rgba(164,124,82,0.25);margin-left:0.5rem;"></div>
-        </div>` : ''}
-        <div style="background:#fff;border-radius:10px;border:1px solid rgba(164,124,82,0.15);overflow:hidden;">
-            ${g.items.map((item, idx) => `
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:0.9rem 1.25rem;${idx < g.items.length-1 ? 'border-bottom:1px solid rgba(164,124,82,0.1);' : ''}">
-                <div style="flex:1;min-width:0;">
-                    <span style="font-size:1rem;font-weight:600;color:#2C3D2A;">${item.name_vi}</span>
-                    ${item.is_signature ? ' <span style="font-size:0.65rem;background:#C8942A;color:#fff;padding:1px 7px;border-radius:999px;font-weight:700;vertical-align:middle;">✦ Đặc sản</span>' : ''}
-                    ${item.description_vi ? `<p style="margin:0.2rem 0 0;font-size:0.82rem;color:#8a7a65;font-style:italic;line-height:1.4;">${item.description_vi}</p>` : ''}
-                </div>
-                <span style="white-space:nowrap;font-size:1rem;font-weight:700;color:#C8942A;flex-shrink:0;">${formatPrice(item.price, item.price_unit)}</span>
-            </div>`).join('')}
-        </div>
-    `).join('');
-}
-
-async function loadMenu() {
-    const loading = document.getElementById('menuLoading');
-    const error = document.getElementById('menuError');
-    const grid = document.getElementById('menuGrid');
-    if (!loading || !error || !grid) return;
-    
-    loading.style.display = 'block';
-    error.style.display = 'none';
-    grid.innerHTML = '';
-
-    try {
-        const res = await fetch('/api/menu');
-        const data = await res.json();
-        if (!data.success) throw new Error(data.error);
-        
-        menuData = data;
-        
-        // Render tab labels from DB
-        const tabs = document.getElementById('menuTabs');
-        if (tabs && menuData.categories.length > 0) {
-            const btns = tabs.querySelectorAll('.cat-btn:not(:first-child)');
-            btns.forEach((btn, i) => {
-                if (menuData.categories[i]) {
-                    btn.textContent = menuData.categories[i].icon + ' ' + menuData.categories[i].name_vi;
-                }
-            });
-        }
-        
-        renderMenuItems(currentCat);
-        loading.style.display = 'none';
-    } catch (err) {
-        console.error('Menu error:', err);
-        // Use static fallback so menu always renders
-        const fallback = {
-            categories: [
-                { id: 1, name_vi: 'Chim Đặc Sản', slug: 'chim', icon: '🐦' },
-                { id: 2, name_vi: 'Ba Ba & Ếch', slug: 'ba-ba-ech', icon: '🐢' },
-                { id: 3, name_vi: 'Cua & Cá', slug: 'cua-ca', icon: '🦀' },
-                { id: 4, name_vi: 'Đặc Sản', slug: 'dac-san', icon: '🌿' },
-                { id: 5, name_vi: 'Đồ Uống', slug: 'do-uong', icon: '🥤' }
-            ],
-            items: [
-                { id:1, name_vi:'Chim To Dần Quay', description_vi:'Vàng ươm, da giòn tan, thịt ngọt đậm vị đồng quê', price:185000, price_unit:'phần', is_signature:true, menu_categories:{slug:'chim',name_vi:'Chim Đặc Sản',icon:'🐦'} },
-                { id:2, name_vi:'Chim Hầm Sả Ớt', description_vi:'Vị cay nồng, sả ớt quyện thịt chim mềm tan', price:175000, price_unit:'phần', is_signature:false, menu_categories:{slug:'chim',name_vi:'Chim Đặc Sản',icon:'🐦'} },
-                { id:3, name_vi:'Chim Xào Lăn', description_vi:'Xào lăn gia vị đậm đà, thơm nức mũi', price:170000, price_unit:'phần', is_signature:false, menu_categories:{slug:'chim',name_vi:'Chim Đặc Sản',icon:'🐦'} },
-                { id:4, name_vi:'Vịt Trời Nướng Than Hoa', description_vi:'Béo ngậy, nướng than cháy cạnh đặc trưng', price:250000, price_unit:'phần', is_signature:true, menu_categories:{slug:'chim',name_vi:'Chim Đặc Sản',icon:'🐦'} },
-                { id:5, name_vi:'Ngỗng Quay Giòn Da', description_vi:'Da giòn tan, thịt mềm béo ngậy đặc trưng', price:320000, price_unit:'phần', is_signature:true, menu_categories:{slug:'chim',name_vi:'Chim Đặc Sản',icon:'🐦'} },
-                { id:6, name_vi:'Ba Ba Thiên Nhiên Nấu Chuối Đậu', description_vi:'Ba ba tươi chọn sống, nấu chuối xanh đậu phụ thơm ngon', price:320000, price_unit:'kg', is_signature:true, menu_categories:{slug:'ba-ba-ech',name_vi:'Ba Ba & Ếch',icon:'🐢'} },
-                { id:7, name_vi:'Ba Ba Rang Muối', description_vi:'Rang muối giòn, vị đậm đà khó quên', price:320000, price_unit:'kg', is_signature:false, menu_categories:{slug:'ba-ba-ech',name_vi:'Ba Ba & Ếch',icon:'🐢'} },
-                { id:8, name_vi:'Ếch Đồng Rang Muối', description_vi:'Tươi giòn, rang muối ớt chuẩn vị đồng', price:145000, price_unit:'phần', is_signature:true, menu_categories:{slug:'ba-ba-ech',name_vi:'Ba Ba & Ếch',icon:'🐢'} },
-                { id:9, name_vi:'Ếch Hầm Tiêu Xanh', description_vi:'Hầm tiêu xanh, vị cay nhẹ thanh tao', price:150000, price_unit:'phần', is_signature:false, menu_categories:{slug:'ba-ba-ech',name_vi:'Ba Ba & Ếch',icon:'🐢'} },
-                { id:10, name_vi:'Cua Sông Rang Me', description_vi:'Chắc thịt, sốt me chua ngọt đặc trưng', price:180000, price_unit:'phần', is_signature:true, menu_categories:{slug:'cua-ca',name_vi:'Cua & Cá',icon:'🦀'} },
-                { id:11, name_vi:'Cua Hấp Bia', description_vi:'Hấp bia tươi mát, thịt cua ngọt chắc', price:175000, price_unit:'phần', is_signature:true, menu_categories:{slug:'cua-ca',name_vi:'Cua & Cá',icon:'🦀'} },
-                { id:12, name_vi:'Cá Quả Nướng Riềng Mẻ', description_vi:'Nướng than hoa, ướp riềng mẻ truyền thống', price:220000, price_unit:'con', is_signature:true, menu_categories:{slug:'cua-ca',name_vi:'Cua & Cá',icon:'🦀'} },
-                { id:13, name_vi:'Cá Quả Hấp Gừng Hành', description_vi:'Hấp gừng hành thơm nồng, giữ trọn vị tươi', price:195000, price_unit:'con', is_signature:false, menu_categories:{slug:'cua-ca',name_vi:'Cua & Cá',icon:'🦀'} },
-                { id:14, name_vi:'Ốc Bươu Xào Lá Lốt', description_vi:'Xào lá lốt thơm, ăn kèm bánh tráng', price:95000, price_unit:'phần', is_signature:false, menu_categories:{slug:'dac-san',name_vi:'Đặc Sản Khác',icon:'🌿'} },
-                { id:15, name_vi:'Cá Lóc Chiên Giòn', description_vi:'Chiên giòn da, chấm mắm riềng cực ngon', price:165000, price_unit:'phần', is_signature:true, menu_categories:{slug:'dac-san',name_vi:'Đặc Sản Khác',icon:'🌿'} },
-                { id:16, name_vi:'Rau Muống Xào Tỏi', description_vi:'Xào tỏi thơm lựng, món ăn kèm đặc trưng', price:65000, price_unit:'phần', is_signature:false, menu_categories:{slug:'dac-san',name_vi:'Đặc Sản Khác',icon:'🌿'} },
-                { id:17, name_vi:'Nước Ép Rau Má Mật Ong', description_vi:'Thanh mát tự nhiên, tốt cho sức khoẻ', price:35000, price_unit:'ly', is_signature:false, menu_categories:{slug:'do-uong',name_vi:'Đồ Uống',icon:'🥤'} },
-                { id:18, name_vi:'Bia Hơi Hà Nội', description_vi:'Bia hơi tươi mát, uống cùng bạn bè', price:15000, price_unit:'cốc', is_signature:false, menu_categories:{slug:'do-uong',name_vi:'Đồ Uống',icon:'🥤'} },
-                { id:19, name_vi:'Trà Đá', description_vi:'Trà đá thanh mát', price:15000, price_unit:'cốc', is_signature:false, menu_categories:{slug:'do-uong',name_vi:'Đồ Uống',icon:'🥤'} }
-            ]
-        };
-        menuData = fallback;
-        const tabs = document.getElementById('menuTabs');
-        if (tabs && fallback.categories.length > 0) {
-            const btns = tabs.querySelectorAll('.cat-btn:not(:first-child)');
-            btns.forEach((btn, i) => {
-                if (fallback.categories[i]) btn.textContent = fallback.categories[i].icon + ' ' + fallback.categories[i].name_vi;
-            });
-        }
-        renderMenuItems(currentCat);
-        loading.style.display = 'none';
-    }
-}
-
-// Cart functions
-const cart = new Map();
-function addToCart(evt, id, name, price) {
-    const qty = cart.get(id)?.qty || 0;
-    cart.set(id, { name, price, qty: qty + 1 });
-    updateCartUI();
-    // Simple feedback
-    const btn = evt?.currentTarget;
-    if (btn) {
-    btn.textContent = '✓';
-    setTimeout(() => btn.textContent = '+', 800);
-    }
-}
-
-function updateCartUI() {
-    const badge = document.getElementById('cartCount');
-    if (badge) {
-        let total = 0;
-        cart.forEach(item => total += item.qty);
-        badge.textContent = total;
-        const floater = document.getElementById('cartFloater');
-        if (floater && total > 0) floater.classList.remove('hidden');
-    }
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    const menuLoading = document.getElementById('menuLoading');
-    if (menuLoading) menuLoading.style.display = 'block';
-    loadMenu();
-});
-</script>
 
 
     <!-- ═══════════════════════════════════════════════
