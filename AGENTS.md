@@ -14,11 +14,8 @@ Single-page restaurant website with booking system and loyalty club. No React/Vi
 ## Commands
 
 ```bash
-# Local development (runs API + serves index.html)
-npm run dev
-
-# Deploy to Vercel
-vercel --prod
+npm run dev      # Local dev (vercel dev)
+npm run deploy   # Deploy to Vercel production
 ```
 
 ## Key Files
@@ -37,6 +34,7 @@ vercel --prod
 Run these SQL files in Supabase Dashboard → SQL Editor:
 1. `supabase/migrations/001_create_bookings.sql`
 2. `supabase/migrations/002_create_loyalty_members.sql`
+3. `supabase/migrations/003_create_menu.sql`
 
 ## Environment Variables
 
