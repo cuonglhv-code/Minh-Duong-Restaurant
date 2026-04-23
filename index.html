@@ -16,21 +16,31 @@
         content="nhà hàng chim to dần, chim to dần hà nội, nhà hàng minh đương, nhà hàng long biên, nhà hàng đồng quê hà nội, ba ba thiên nhiên, ếch đồng, cua sông, ngọc thụy long biên">
     <meta name="author" content="Nhà Hàng Minh Đương">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://nhahangminhduong.vn/">
+    <link rel="canonical" href="https://minh-duong-restaurant.vercel.app/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>">
 
     <!-- Open Graph (Facebook / Zalo chia sẻ) -->
-    <meta property="og:type" content="restaurant">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nhà Hàng Minh Đương">
     <meta property="og:title" content="Nhà Hàng Minh Đương | Chim To Dần Số 1 Hải Phòng tại Hà Nội">
     <meta property="og:description"
         content="Chim To Dần chính hiệu, ba ba thiên nhiên, ếch đồng tươi sống. Không gian bên hồ thoáng mát. Ngõ 295 Ngọc Thụy, Long Biên, Hà Nội.">
-    <meta property="og:url" content="https://nhahangminhduong.vn/">
+    <meta property="og:url" content="https://minh-duong-restaurant.vercel.app/">
     <meta property="og:locale" content="vi_VN">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Không gian nhà hàng Minh Đương – Chim To Dần Long Biên Hà Nội">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nhà Hàng Minh Đương | Chim To Dần Hà Nội">
     <meta name="twitter:description"
         content="Chim To Dần chính hiệu số 1 Hải Phòng – nay tại Long Biên, Hà Nội. Đặt bàn: 0979.292.888">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80">
 
     <!-- Schema.org Structured Data (giúp Google hiểu nhà hàng của bạn) -->
     <script type="application/ld+json">
@@ -39,16 +49,18 @@
   "@type": "Restaurant",
   "name": "Nhà Hàng Minh Đương – Chim To Dần",
   "description": "Chim To Dần chính hiệu số 1 Hải Phòng, chuyên các món từ chim, ba ba thiên nhiên, ếch đồng, cua sông tươi sống. Không gian bên hồ, Long Biên, Hà Nội.",
-  "url": "https://nhahangminhduong.vn",
+  "url": "https://minh-duong-restaurant.vercel.app",
   "telephone": "+84979292888",
-  "servesCuisine": "Vietnamese",
+  "servesCuisine": ["Vietnamese", "Seafood", "Wild Game"],
   "priceRange": "$$",
+  "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Số 2 Ngõ 295 Ngọc Thụy",
     "addressLocality": "Long Biên",
     "addressRegion": "Hà Nội",
-    "addressCountry": "VN"
+    "addressCountry": "VN",
+    "postalCode": "100000"
   },
   "geo": {
     "@type": "GeoCoordinates",
@@ -63,7 +75,41 @@
       "closes": "22:00"
     }
   ],
-  "hasMap": "https://maps.google.com/?q=Ngõ+295+Ngọc+Thụy+Long+Biên+Hà+Nội"
+  "hasMap": "https://maps.google.com/?q=Ngõ+295+Ngọc+Thụy+Long+Biên+Hà+Nội",
+  "menu": "https://minh-duong-restaurant.vercel.app/#thuc-don",
+  "acceptsReservations": "True",
+  "hasMenuItem": [
+    {
+      "@type": "MenuItem",
+      "name": "Chim To Dần Quay",
+      "description": "Vàng ươm, da giòn tan, thịt ngọt đậm vị đồng quê",
+      "offers": { "@type": "Offer", "price": "185000", "priceCurrency": "VND" }
+    },
+    {
+      "@type": "MenuItem",
+      "name": "Vịt Trời Nướng Than Hoa",
+      "description": "Béo ngậy, nướng than cháy cạnh đặc trưng",
+      "offers": { "@type": "Offer", "price": "250000", "priceCurrency": "VND" }
+    },
+    {
+      "@type": "MenuItem",
+      "name": "Ba Ba Thiên Nhiên Nấu Chuối Đậu",
+      "description": "Ba ba tươi chọn sống, nấu chuối xanh đậu phụ thơm ngon",
+      "offers": { "@type": "Offer", "price": "320000", "priceCurrency": "VND" }
+    },
+    {
+      "@type": "MenuItem",
+      "name": "Cua Sông Rang Me",
+      "description": "Chắc thịt, sốt me chua ngọt đặc trưng",
+      "offers": { "@type": "Offer", "price": "180000", "priceCurrency": "VND" }
+    },
+    {
+      "@type": "MenuItem",
+      "name": "Cá Quả Nướng Riềng Mẻ",
+      "description": "Nướng than hoa, ướp riềng mẻ truyền thống",
+      "offers": { "@type": "Offer", "price": "220000", "priceCurrency": "VND" }
+    }
+  ]
 }
 </script>
 
