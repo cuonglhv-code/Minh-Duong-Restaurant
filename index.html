@@ -2012,29 +2012,47 @@ section, section * {
         }, 1500);
 
         // ═══════════════════════════════════════
-        // DYNAMIC MENU LOADING
+        // STATIC MENU DATA
         // ═══════════════════════════════════════
-        let allMenuItems = [];
+        const STATIC_CATEGORIES = [
+            { slug: 'chim',      name_vi: 'Các Món Chim' },
+            { slug: 'ba-ba-ech', name_vi: 'Ba Ba & Ếch' },
+            { slug: 'cua-ca',    name_vi: 'Cua & Cá' },
+            { slug: 'dac-san',   name_vi: 'Đặc Sản Khác' },
+            { slug: 'do-uong',   name_vi: 'Đồ Uống' }
+        ];
 
-        async function loadMenu() {
-            console.log('Loading menu...');
-            try {
-                const res = await fetch('/api/menu');
-                const data = await res.json();
-                console.log('Menu API response:', data);
-                if (data.success) {
-                    console.log('Menu loaded:', data.items?.length, 'items');
-                    console.log('Categories:', data.categories);
-                    allMenuItems = data.items || [];
-                    renderCategories(data.categories || []);
-                    renderMenuItems(allMenuItems);
-                } else {
-                    console.error('Menu API error:', data.error);
-                }
-            } catch (err) {
-                console.error('Failed to load menu:', err);
-                document.getElementById('menuItemsContainer').innerHTML = '<p style="text-align:center; padding:2rem; color:#8B2020;">Không thể tải thực đơn. Vui lòng làm mới trang.</p>';
-            }
+        const STATIC_ITEMS = [
+            { name_vi: 'Chim To Dần Quay',          description_vi: 'Vàng ươm, da giòn tan, thịt ngọt đậm vị đồng quê',          price: 185000, price_unit: 'phần',  menu_categories: { slug: 'chim' } },
+            { name_vi: 'Chim Hầm Sả Ớt',            description_vi: 'Vị cay nồng, sả ớt quyện thịt chim mềm tan',                 price: 175000, price_unit: 'phần',  menu_categories: { slug: 'chim' } },
+            { name_vi: 'Chim Xào Lăn',               description_vi: 'Xào lăn gia vị đậm đà, thơm nức mũi',                       price: 170000, price_unit: 'phần',  menu_categories: { slug: 'chim' } },
+            { name_vi: 'Vịt Trời Nướng Than Hoa',    description_vi: 'Béo ngậy, nướng than cháy cạnh đặc trưng',                   price: 250000, price_unit: 'phần',  menu_categories: { slug: 'chim' } },
+            { name_vi: 'Ngỗng Quay Giòn Da',         description_vi: 'Da giòn tan, thịt mềm béo ngậy đặc trưng',                   price: 320000, price_unit: 'phần',  menu_categories: { slug: 'chim' } },
+            { name_vi: 'Ba Ba Thiên Nhiên Nấu Chuối Đậu', description_vi: 'Ba ba tươi chọn sống, nấu chuối xanh đậu phụ thơm ngon', price: 320000, price_unit: 'kg',    menu_categories: { slug: 'ba-ba-ech' } },
+            { name_vi: 'Ba Ba Rang Muối',             description_vi: 'Rang muối giòn, vị đậm đà khó quên',                        price: 320000, price_unit: 'kg',    menu_categories: { slug: 'ba-ba-ech' } },
+            { name_vi: 'Ba Ba Hầm Thuốc Bắc',        description_vi: 'Hầm thuốc bắc bổ dưỡng, giải cảm',                          price: 350000, price_unit: 'phần',  menu_categories: { slug: 'ba-ba-ech' } },
+            { name_vi: 'Ếch Đồng Rang Muối',         description_vi: 'Tươi giòn, rang muối ớt chuẩn vị đồng',                     price: 145000, price_unit: 'phần',  menu_categories: { slug: 'ba-ba-ech' } },
+            { name_vi: 'Ếch Hầm Tiêu Xanh',          description_vi: 'Hầm tiêu xanh, vị cay nhẹ thanh tao',                       price: 150000, price_unit: 'phần',  menu_categories: { slug: 'ba-ba-ech' } },
+            { name_vi: 'Cua Sông Rang Me',            description_vi: 'Chắc thịt, sốt me chua ngọt đặc trưng',                     price: 180000, price_unit: 'phần',  menu_categories: { slug: 'cua-ca' } },
+            { name_vi: 'Cua Sốt Ớt Chua Ngọt',       description_vi: 'Sốt ớt chua ngọt, cua chắc thịt tươi ngon',                 price: 185000, price_unit: 'phần',  menu_categories: { slug: 'cua-ca' } },
+            { name_vi: 'Cua Hấp Bia',                 description_vi: 'Hấp bia tươi mát, thịt cua ngọt chắc',                     price: 175000, price_unit: 'phần',  menu_categories: { slug: 'cua-ca' } },
+            { name_vi: 'Cá Quả Nướng Riềng Mẻ',      description_vi: 'Nướng than hoa, ướp riềng mẻ truyền thống',                 price: 220000, price_unit: 'con',   menu_categories: { slug: 'cua-ca' } },
+            { name_vi: 'Cá Quả Hấp Gừng Hành',       description_vi: 'Hấp gừng hành thơm nồng, giữ trọn vị tươi',                price: 195000, price_unit: 'con',   menu_categories: { slug: 'cua-ca' } },
+            { name_vi: 'Ốc Bươu Xào Lá Lốt',         description_vi: 'Xào lá lốt thơm, ăn kèm bánh tráng',                       price:  95000, price_unit: 'phần',  menu_categories: { slug: 'dac-san' } },
+            { name_vi: 'Ốc Bươu Hấp Sả',             description_vi: 'Hấp sả thơm nồng, ăn với bún',                              price: 105000, price_unit: 'phần',  menu_categories: { slug: 'dac-san' } },
+            { name_vi: 'Cá Lóc Chiên Giòn',           description_vi: 'Chiên giòn da, chấm mắm riềng cực ngon',                   price: 165000, price_unit: 'phần',  menu_categories: { slug: 'dac-san' } },
+            { name_vi: 'Rau Muống Xào Tỏi',           description_vi: 'Xào tỏi thơm lựng, món ăn kèm đặc trưng',                  price:  65000, price_unit: 'phần',  menu_categories: { slug: 'dac-san' } },
+            { name_vi: 'Nước Ép Rau Má Mật Ong',      description_vi: 'Thanh mát tự nhiên, tốt cho sức khoẻ',                     price:  35000, price_unit: 'ly',    menu_categories: { slug: 'do-uong' } },
+            { name_vi: 'Nước Sâm Mát',                description_vi: 'Thảo mộc tự nhiên, giải nhiệt đồng quê',                   price:  30000, price_unit: 'ly',    menu_categories: { slug: 'do-uong' } },
+            { name_vi: 'Bia Hơi Hà Nội',              description_vi: 'Bia hơi tươi mát, uống cùng bạn bè',                       price:  15000, price_unit: 'cốc',   menu_categories: { slug: 'do-uong' } },
+            { name_vi: 'Trà Đá',                      description_vi: 'Trà đá thanh mát',                                         price:  15000, price_unit: 'cốc',   menu_categories: { slug: 'do-uong' } }
+        ];
+
+        let allMenuItems = STATIC_ITEMS;
+
+        function loadMenu() {
+            renderCategories(STATIC_CATEGORIES);
+            renderMenuItems(allMenuItems);
         }
 
         function renderCategories(categories) {
@@ -2113,7 +2131,6 @@ section, section * {
 
         // Initialize on load
         window.addEventListener('DOMContentLoaded', loadMenu);
-        setTimeout(loadMenu, 100);
 
         // ═══════════════════════════════════════
         // CART & ORDER FLOW
@@ -2444,7 +2461,7 @@ section, section * {
                     renderCartUI();
                     showToast('✅ Đơn hàng đã được gửi! Chúng tôi sẽ liên hệ sớm.');
                 } else if (result.errors) {
-                    const firstError = Object.values(result.errors)[0] as string;
+                    const firstError = Object.values(result.errors)[0];
                     errEl.textContent = firstError;
                     errEl.style.display = 'block';
                     btn.disabled = false;
